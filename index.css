@@ -1,0 +1,144 @@
+﻿:root {
+	--topbar-color: mediumaquamarine;
+}
+
+html, body {
+	overflow-x: hidden;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#parallax-container {
+	position:fixed;
+	width:100vw;
+	height:100vh;
+	overflow:hidden;
+	z-index:-1;
+	top: 0;
+	left: 0;
+}
+
+#parallax-bg {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: auto;
+	min-height: 100vh;
+}
+
+#main-container {
+/*	position: absolute;*/
+	margin: auto;
+	margin-top: 1%;
+	margin-bottom: 250px;
+	padding-bottom: 2vh;
+	width: 90vw;
+	/*	width: 80vw;*/
+	background-color: color-mix(in srgb,slategrey,transparent 30%);
+}
+
+.side-to-side {
+	display: flex;
+	align-items: center;
+}
+
+#title-bar {
+	height: 10vh;
+	background-color: var(--topbar-color);
+	overflow: hidden;
+	padding: 0 1vw;
+}
+
+#title-bar > * {
+	flex-shrink: 0;
+}
+
+#title-bar a {
+	font-weight: bold;
+	font-size: 4vh;
+	/*	display: inline-block;*/
+	/*	height: 100%;*/
+	-webkit-text-stroke: 0.1vh black;
+	background-color: color-mix(in srgb,black,transparent 90%);
+}
+
+#myUsername {
+	display: initial;
+	position: absolute;
+	right: 5%;
+	font-size: 7vh;
+}
+
+.logo {
+	height: 10vh;
+	display: block;
+	object-fit: contain;
+}
+
+p, h1, hr, button, a {
+	margin: 1vh;
+	color: white;
+}
+
+p, h1, button, a {
+	font-family: 'Arial';
+	-webkit-text-stroke-color: black;
+}
+
+p, a {
+	font-weight: bold;
+	font-size: 3.5vh;
+	-webkit-text-stroke-width: 0.1vh;
+}
+
+sup {
+	-webkit-text-stroke-width: 0.05vh;
+}
+
+h1 {
+	font-size: 10vh;
+	-webkit-text-stroke-width: 0.2vh;
+}
+
+img {
+	image-rendering: pixelated;
+	-ms-interpolation-mode: nearest-neighbor;
+}
+
+a {
+	text-decoration: none;
+}
+
+.warning {
+	background-color: gold;
+	color: black;
+	font-size: 2vh;
+	padding: 1vh;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	font-weight: 100;
+	-webkit-text-stroke: 0px transparent;
+	width: 0px;
+	display: inline;
+}
+
+.img404 {
+	aspect-ratio: 1;
+	height: 50vh;
+	margin-left: auto;
+	margin-right: auto;
+	display: block
+}
+
+.options a {
+	-webkit-text-stroke-width: 0.1vh;
+	font-size: 8vh;
+	background-color: dodgerblue;
+	border: solid;
+	border-color: black;
+	border-width: 2px;
+}

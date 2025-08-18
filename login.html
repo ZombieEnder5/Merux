@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <script src="../shared/defaultLoader.js"></script>
+    <div id="parallax-container">
+        <img id="parallax-bg" src="images/background.png" />
+    </div>
+    <div id="main-container">
+        <h1>Login</h1>
+        <hr />
+        <div class="side-to-side">
+            <p>Username:</p>
+            <input type="email" id="username" />
+        </div>
+        <div class="side-to-side">
+            <p>Password:</p>
+            <input type="password" id="password" />
+            <button style="color:black;" id="password-toggler">Show Password</button>
+        </div>
+        <button id="submit" type="submit" style="color:black;">Submit</button>
+        <br />
+        <br />
+        <p class="warning">Warning: 30 days after logging in, you will be logged out automatically.</p>
+        <br />
+        <br />
+        <p hidden="true" id="result">Please wait...</p>
+    </div>
+    <script>
+        window.addEventListener('load', function () {
+            const toggle = document.getElementById('password-toggler');
+            const put = document.getElementById('password');
+            toggle.addEventListener('mousedown', function () {
+                put.type = 'text';
+            });
+            toggle.addEventListener('mouseup', function () {
+                put.type = 'password';
+            });
+            toggle.addEventListener('mouseleave', function () {
+                put.type = 'password';
+            });
+        });
+    </script>
+    <script type="module">
+        import { setCookie, getCookie } from './cookies.js';
+        window.addEventListener('load', function () {
+            if (getCookie('username') != null && getCookie('password') != null)
+                window.location.replace('index.html');
+            const submit = document.getElementById('submit');
+            const output = document.getElementById('result');
+            const userPrompt = document.getElementById('username');
+            const passPrompt = document.getElementById('password');
+            submit.addEventListener('click', function () {
+                submit.hidden = true;
+                output.hidden = false;
+                output.innerHTML = 'Please wait...';
+                userPrompt.disabled = true;
+                passPrompt.disabled = true;
+                var url = new URL('https://ZombieEnder5.pythonanywhere.com/can_login');
+                var username = userPrompt.value;
+                var password = passPrompt.value
+                url.searchParams.set('username', username);
+                url.searchParams.set('password', password);
+                fetch(url, { mode: 'cors' }).then((v) => {
+                    return v.text();
+                }).then((x) => {
+                    if (x == 1) {
+                        setCookie('username', username, 30);
+                        setCookie('password', password, 30);
+                        location.reload();
+                        return;
+                    }
+                    output.innerHTML = 'Incorrect username or password.';
+                    userPrompt.disabled = false;
+                    passPrompt.disabled = false;
+                    submit.hidden = false;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
