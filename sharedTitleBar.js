@@ -8,10 +8,10 @@ window.addEventListener('load', function () {
 	main.insertBefore(bar, main.firstChild);
 
 	const index = document.createElement('a');
-	index.href = '/index.html';
+	index.href = './index.html';
 	const indexImg = document.createElement('img');
-	indexImg.src = '/images/logo.png';
-	indexImg.alt = 'Mirus Logo';
+	indexImg.src = './images/logo.png';
+	indexImg.alt = 'Merux Logo';
 	indexImg.className = 'logo';
 	index.appendChild(indexImg);
 	bar.appendChild(index);
@@ -19,12 +19,12 @@ window.addEventListener('load', function () {
 	var usernameValue = getCookie("username");
 	if (usernameValue == null) {
 		const login = document.createElement('a');
-		login.href = '/login.html';
+		login.href = './login.html';
 		login.innerHTML = 'Login';
 		bar.appendChild(login);
 	} else {
 		const logout = document.createElement('a');
-		logout.href = '/logout.html';
+		logout.href = './logout.html';
 		logout.innerHTML = 'Logout';
 		bar.appendChild(logout);
 
@@ -35,18 +35,18 @@ window.addEventListener('load', function () {
 	}
 
 	const downloads = document.createElement('a');
-	downloads.href = '/downloads.html';
+	downloads.href = './downloads.html';
 	downloads.innerHTML = 'Downloads';
 	bar.appendChild(downloads);
 
 	const tos = document.createElement('a');
-	tos.href = '/tos.html';
+	tos.href = './tos.html';
 	tos.innerHTML = 'TOS';
 	tos.target = '_blank';
 	bar.appendChild(tos);
 
 	const blogs = document.createElement('a');
-	blogs.href = '/blogs.html';
+	blogs.href = './blogs.html';
 	blogs.innerHTML = 'Blogs';
 	bar.appendChild(blogs);
 });
