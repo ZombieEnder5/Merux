@@ -1,4 +1,4 @@
-﻿import { getCookie } from './cookies.js';
+﻿import { getCookie } from '/Merux/cookies.js';
 
 window.addEventListener('load', function () {
 	const main = document.getElementById("main-container");
@@ -8,9 +8,9 @@ window.addEventListener('load', function () {
 	main.insertBefore(bar, main.firstChild);
 
 	const index = document.createElement('a');
-	index.href = './index.html';
+	index.href = '/Merux/index.html';
 	const indexImg = document.createElement('img');
-	indexImg.src = './images/logo.png';
+	indexImg.src = '/Merux/images/logo.png';
 	indexImg.alt = 'Merux Logo';
 	indexImg.className = 'logo';
 	index.appendChild(indexImg);
@@ -19,12 +19,12 @@ window.addEventListener('load', function () {
 	var usernameValue = getCookie("username");
 	if (usernameValue == null) {
 		const login = document.createElement('a');
-		login.href = './login.html';
+		login.href = '/Merux/login.html';
 		login.innerHTML = 'Login';
 		bar.appendChild(login);
 	} else {
 		const logout = document.createElement('a');
-		logout.href = './logout.html';
+		logout.href = '/Merux/logout.html';
 		logout.innerHTML = 'Logout';
 		bar.appendChild(logout);
 
@@ -35,18 +35,18 @@ window.addEventListener('load', function () {
 	}
 
 	const downloads = document.createElement('a');
-	downloads.href = './downloads.html';
+	downloads.href = '/Merux/downloads.html';
 	downloads.innerHTML = 'Downloads';
 	bar.appendChild(downloads);
 
 	const tos = document.createElement('a');
-	tos.href = './tos.html';
+	tos.href = '/Merux/tos.html';
 	tos.innerHTML = 'TOS';
 	tos.target = '_blank';
 	bar.appendChild(tos);
 
 	const blogs = document.createElement('a');
-	blogs.href = './blogs.html';
+	blogs.href = '/Merux/blogs.html';
 	blogs.innerHTML = 'Blogs';
 	bar.appendChild(blogs);
 });

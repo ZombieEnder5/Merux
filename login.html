@@ -3,9 +3,9 @@
 <head>
 </head>
 <body>
-    <script src="./shared/defaultLoader.js"></script>
+    <script src="/Merux/shared/defaultLoader.js"></script>
     <div id="parallax-container">
-        <img id="parallax-bg" src="./images/background.png" />
+        <img id="parallax-bg" src="/Merux/images/background.png" />
     </div>
     <div id="main-container">
         <h1>Login</h1>
@@ -43,7 +43,7 @@
         });
     </script>
     <script type="module">
-        import { setCookie, getCookie } from './cookies.js';
+        import { setCookie, getCookie } from '/Merux/cookies.js';
         window.addEventListener('load', function () {
             if (getCookie('username') != null && getCookie('password') != null)
                 window.location.replace('index.html');
