@@ -1,4 +1,4 @@
-﻿import { getCookie } from '/cookies.js';
+﻿import { getCookie } from './cookies.js';
 
 window.addEventListener('load', function () {
 	const main = document.getElementById("main-container");
