@@ -46,7 +46,8 @@ window.addEventListener('load', function () {
 	bar.appendChild(tos);
 
 	const blogs = document.createElement('a');
-	blogs.href = '/Merux/blogs.html';
+	blogs.href = 'https://github.com/ZombieEnder5/MeruxGame/discussions/categories/announcements';
 	blogs.innerHTML = 'Blogs';
+	blogs.target = '_blank';
 	bar.appendChild(blogs);
 });
