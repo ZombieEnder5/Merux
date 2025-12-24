@@ -1,53 +1,52 @@
-﻿import { getCookie } from '/Merux/cookies.js';
+﻿import {getCookie} from './cookies.js';
 
 window.addEventListener('load', function () {
 	const main = document.getElementById("main-container");
-	const bar = document.createElement('div');
-	bar.id = 'title-bar';
-	bar.className = 'side-to-side';
+	const bar = document.createElement('ul');
+	bar.className = 'navbar';
 	main.insertBefore(bar, main.firstChild);
+	
+	function addButton(txt, addr) {
+		var item = document.createElement('li');
+		var a = document.createElement('a');
+		a.href = addr;
+		a.innerText = txt;
+		item.appendChild(a);
+		bar.appendChild(item);
+		return a;
+	}
+	
+	function addRightText(txt) {
+		var item = document.createElement('li');
+		item.className = "right-align";
+		var p = document.createElement('p');
+		p.innerText = txt;
+		item.appendChild(p);
+		bar.appendChild(item);
+		return p;
+	}
+	
+	function addRightButton(txt, addr) {
+		var item = document.createElement('li');
+		item.className = "right-align";
+		var a = document.createElement('a');
+		a.href = addr;
+		a.innerText = txt;
+		item.appendChild(a);
+		bar.appendChild(item);
+		return a;
+	}
 
-	const index = document.createElement('a');
-	index.href = '/Merux/index.html';
-	const indexImg = document.createElement('img');
-	indexImg.src = '/Merux/images/logo.png';
-	indexImg.alt = 'Merux Logo';
-	indexImg.className = 'logo';
-	index.appendChild(indexImg);
-	bar.appendChild(index);
+	addButton('Home','index.html');
+	addButton('Downloads','downloads.html');
+	var blogA = addButton('Blogs','https://github.com/ZombieEnder5/MeruxGame/discussions/categories/announcements');
+	blogA.target = '_blank';
 
 	var usernameValue = getCookie("username");
 	if (usernameValue == null) {
-		const login = document.createElement('a');
-		login.href = '/Merux/login.html';
-		login.innerHTML = 'Login';
-		bar.appendChild(login);
+		addRightButton('Login','login.html');
 	} else {
-		const logout = document.createElement('a');
-		logout.href = '/Merux/logout.html';
-		logout.innerHTML = 'Logout';
-		bar.appendChild(logout);
-
-		const username = document.createElement('p');
-		username.id = 'myUsername';
-		username.innerText = usernameValue;
-		bar.appendChild(username);
+		addRightText(usernameValue);
+		addRightButton('Logout','logout.html');
 	}
-
-	const downloads = document.createElement('a');
-	downloads.href = '/Merux/downloads.html';
-	downloads.innerHTML = 'Downloads';
-	bar.appendChild(downloads);
-
-	const tos = document.createElement('a');
-	tos.href = '/Merux/tos.html';
-	tos.innerHTML = 'TOS';
-	tos.target = '_blank';
-	bar.appendChild(tos);
-
-	const blogs = document.createElement('a');
-	blogs.href = 'https://github.com/ZombieEnder5/MeruxGame/discussions/categories/announcements';
-	blogs.innerHTML = 'Blogs';
-	blogs.target = '_blank';
-	bar.appendChild(blogs);
 });
