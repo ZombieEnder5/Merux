@@ -13,25 +13,16 @@ icon.href = 'images/favicon.ico';
 document.head.appendChild(icon);
 
 const sheet = document.createElement("link");
-sheet.rel = 'stylesheet';
+sheet.rel = 'stylesheet/less';
+sheet.type = 'text/css';
 sheet.href = 'index.css';
 document.head.appendChild(sheet);
 
-const sharedTitleBar = document.createElement("script");
-sharedTitleBar.type = 'module';
-sharedTitleBar.src = 'sharedTitleBar.js';
-document.body.appendChild(sharedTitleBar);
+const lessScript = document.createElement('script');
+lessScript.src = 'https://cdn.jsdelivr.net/npm/less';
+document.head.appendChild(lessScript);
 
-const titleSwap = document.createElement("script");
-titleSwap.type = 'text/javascript';
-titleSwap.src = 'titleSwap.js';
-document.body.appendChild(titleSwap);
-
-const vignette = document.createElement("div");
-vignette.className = 'vignette';
-document.body.appendChild(vignette);
-
-const logo = document.createElement("img");
-logo.src = "images/logo.png"
-logo.className = "logo";
-document.body.insertBefore(logo,document.body.firstChild.nextSibling);
+const sharedElements = document.createElement("script");
+sharedElements.type = 'module';
+sharedElements.src = 'sharedElements.js';
+document.body.appendChild(sharedElements);

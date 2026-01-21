@@ -4,27 +4,27 @@
 	</head>
 	<body>
 		<script src="shared/defaultLoader.js"></script>
-		<div id="main-container">
-			<div id="inner-container">
-				<h1>Login</h1>
-				<hr />
-				<p class="warning">Warning: 30 days after logging in, you will be logged out automatically.</p>
-				<div class="side-to-side">
-					<p>Username:</p>
+		<div id="site-window">
+			<p class="warning">Warning: 30 days after logging in, you will be logged out automatically.</p>
+			<section class="center-vertical-flex">
+				<section class="login-section">
+					<h1>Login</h1>
+					<hr />
+					<p>Username: </p>
 					<input type="email" id="username" />
-				</div>
-				<div class="side-to-side">
-					<p>Password:</p>
-					<input type="password" id="password" />
-					<button style="color:black;" id="password-toggler">Show Password</button>
-				</div>
-				<br/>
-				<button id="submit" type="submit" style="color:black;">Submit</button>
-				<br />
-				<br />
-				<br />
-				<p hidden="true" id="result">Please wait...</p>
-			</div>
+					<div class="side-to-side">
+						<p>Password:</p>
+						<input type="password" id="password" />
+						<button style="color:black;" id="password-toggler">Show Password</button>
+					</div>
+					<br/>
+					<button id="submit" type="submit" style="color:black;">Submit</button>
+					<br />
+					<br />
+					<br />
+					<p hidden="true" id="result">Please wait...</p>
+				</section>
+			</section>
 		</div>
 		<script>
 			window.addEventListener('load', function () {
